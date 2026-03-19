@@ -1,5 +1,6 @@
 package org.zerock;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -23,10 +24,11 @@ public class App {
             switch(menu){
                 case 1:{//계산하기
                     while(true){
-                        System.out.print("첫번째 정수를 입력하세요.");
-                        int firstNum = scanner.nextInt();
-                        System.out.print("두번째 정수를 입력하세요.");
-                        int secondNum = scanner.nextInt();
+                        try{
+                            System.out.print("첫번째 정수를 입력하세요.");
+                            int firstNum = scanner.nextInt();
+                            System.out.print("두번째 정수를 입력하세요.");
+                            int secondNum = scanner.nextInt();
 
                         System.out.println("연산 기호를 입력하세요(+, -, *, /)");
                         char c = scanner.next().charAt(0);
@@ -51,7 +53,7 @@ public class App {
                                 break;
                             }
                             case '/': {
-                                if(secondNum == 0 ){
+                                if(secondNum == 0 ){ //0으로 나누기 방지
                                     System.out.println("0으로 나눌 수 없습니다.");
                                     break;
                                 }
@@ -64,9 +66,14 @@ public class App {
 
                         }
 
-                        System.out.println("계속 진행하시겠습니까? (계산을 종료하려면 exit를 입력하세요)");
+                        System.out.println("계속 진행하려면 아무 글자나 입력하세요.(계산을 종료하려면 exit를 입력하세요)");
                         String answer = scanner.next();
                         if(answer.equals("exit")){//exit를 입력하면 계산 종료
+                            break;
+                        }
+                        }catch(InputMismatchException e){
+                            System.out.println("정수를 입력하세요\n");
+                            scanner.next();
                             break;
                         }
                     }break; //1.계산하기 종료
@@ -80,6 +87,9 @@ public class App {
                     calculator.deleteList();
                     break;
                 }
+                default:
+                    System.out.println("존재하지 않는 메뉴 입니다.");
+                    continue;
             }
         }
 

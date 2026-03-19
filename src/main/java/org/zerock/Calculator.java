@@ -14,6 +14,6 @@ public class Calculator {
     }
 
     public void deleteList(){
-        list.removeLast();
+        list.remove(list.size()-1);
     }
 }
