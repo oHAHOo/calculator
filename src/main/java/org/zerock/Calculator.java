@@ -12,4 +12,8 @@ public class Calculator {
     public ArrayList<String> getList() {
         return list;
     }
+
+    public void deleteList(){
+        list.remove(list.size()-1);
+    }
 }
