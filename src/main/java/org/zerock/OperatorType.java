@@ -1,27 +1,20 @@
 package org.zerock;
 
+import java.util.function.BiFunction;
+
 public enum OperatorType {
-    PLUS, MINUS, MULTI, DIVIDE;
+    ADD((a, b) -> a + b),
+    SUBTRACT((a, b) -> a - b),
+    MULTIPLY((a, b) -> a * b),
+    DIVIDE((a, b) -> a / b);
+
+    private BiFunction<Integer, Integer, Integer> func;
+
+    OperatorType(BiFunction<Integer, Integer, Integer> func) {
+        this.func = func;
+    }
 
     public int apply(int a, int b) {
-        switch (this){
-            case PLUS:{
-                return a + b;
-            }
-            case MINUS:{
-                return a-b;
-            }
-            case MULTI:{
-                return a*b;
-            }
-            case DIVIDE:{
-                if(b==0){
-                    return 0;
-                }
-                return a/b;
-            } default:{
-                return 0;
-            }
-        }
+        return func.apply(a, b);
     }
 }
