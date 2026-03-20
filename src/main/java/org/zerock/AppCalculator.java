@@ -2,14 +2,14 @@ package org.zerock;
 
 import java.util.ArrayList;
 
-public class Calculator {
-    private ArrayList<Double> list  = new ArrayList<>();
+public class AppCalculator {
+    private ArrayList<String> list  = new ArrayList<>();
 
-    public void setList(Double result) {
+    public void setList(String result) {
         list.add(result);
     }
 
-    public ArrayList<Double> getList() {
+    public ArrayList<String> getList() {
         return list;
     }
 
@@ -17,3 +17,4 @@ public class Calculator {
         list.remove(list.size()-1);
     }
 }
+
