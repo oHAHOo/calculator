@@ -8,13 +8,14 @@ public enum OperatorType {
     MULTIPLY((a, b) -> a * b),
     DIVIDE((a, b) -> a / b);
 
-    private BiFunction<Integer, Integer, Integer> func;
+    private BiFunction<Double, Double, Double> func;
 
-    OperatorType(BiFunction<Integer, Integer, Integer> func) {
+    OperatorType(BiFunction<Double, Double, Double> func) {
         this.func = func;
     }
 
-    public int apply(int a, int b) {
+    public double apply(double a, double b) {
         return func.apply(a, b);
     }
+
 }
