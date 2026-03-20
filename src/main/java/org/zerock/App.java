@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        AppCalculator calculator = new AppCalculator();
         String result;
         int menu;
 
@@ -92,8 +92,5 @@ public class App {
                     continue;
             }
         }
-
-
-
         }
     }
