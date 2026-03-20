@@ -3,13 +3,13 @@ package org.zerock;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<String> list  = new ArrayList<>();
+    private ArrayList<Double> list  = new ArrayList<>();
 
-    public void setList(String result) {
+    public void setList(Double result) {
         list.add(result);
     }
 
-    public ArrayList<String> getList() {
+    public ArrayList<Double> getList() {
         return list;
     }
 

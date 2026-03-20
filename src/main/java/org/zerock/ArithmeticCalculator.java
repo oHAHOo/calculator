@@ -1,7 +1,11 @@
 package org.zerock;
 
-import java.util.InputMismatchException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class ArithmeticCalculator {
 
@@ -38,10 +42,11 @@ public class ArithmeticCalculator {
             System.out.println("1. 계산 하기");
             System.out.println("2. 저장된 계산 결과 출력");
             System.out.println("3. 최근 계산 결과 삭제");
-            System.out.println("4. 프로그램 종료");
+            System.out.println("4. 입력받은 값보다 큰 결과값 출력");
+            System.out.println("5. 프로그램 종료");
             menu = Integer.parseInt(scanner.nextLine());
 
-            if(menu==4)break;
+            if(menu==5)break;
 
             switch(menu){
                 case 1:{//계산하기
@@ -58,7 +63,7 @@ public class ArithmeticCalculator {
                             result = arithmeticCalculator.calculate(firstNum, secondNum, operation);
                             output = firstNum + " " + operation + " " + secondNum + " = " + result;
                             System.out.println(output);
-                            calculator.setList(output);
+                            calculator.setList(result);
 
                             System.out.println("계속 진행하려면 아무 글자나 입력하세요.(계산을 종료하려면 exit를 입력하세요)");
                             String answer = scanner.next();
@@ -82,6 +87,15 @@ public class ArithmeticCalculator {
                     }
                     System.out.println("최근 연산 결과를 삭제했습니다.");
                     calculator.deleteList();
+                    break;
+                }
+                case 4:{
+                    System.out.println("값을 입력하세요");
+                    double input =  Double.parseDouble(scanner.nextLine());
+                    List<Double> list = calculator.getList().stream()
+                            .filter(n -> n >= input)
+                            .collect(Collectors.toList());
+                    System.out.println(list);
                     break;
                 }
                 default:
