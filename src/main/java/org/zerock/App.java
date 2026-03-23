@@ -12,47 +12,54 @@ public class App {
         int menu;
 
         while (true) {
+            //메뉴 출력
             System.out.println("메뉴를 선택하세요.\n");
             System.out.println("1. 계산 하기");
             System.out.println("2. 저장된 계산 결과 출력");
             System.out.println("3. 최근 계산 결과 삭제");
             System.out.println("4. 프로그램 종료");
+
+            //메뉴 번호 입력
             menu = scanner.nextInt();
 
+            //4입력시 프로그램 종료
             if(menu==4)break;
 
             switch(menu){
                 case 1:{//계산하기
                     while(true){
                         try{
+                            //첫번째 수 입력
                             System.out.print("첫번째 정수를 입력하세요.");
                             int firstNum = scanner.nextInt();
+                            //두번째 수 입력
                             System.out.print("두번째 정수를 입력하세요.");
                             int secondNum = scanner.nextInt();
 
+                            //연산자 입력
                         System.out.println("연산 기호를 입력하세요(+, -, *, /)");
                         char c = scanner.next().charAt(0);
 
                         switch (c)
                         {
-                            case '+': {
+                            case '+': { //덧셈
                                 result = firstNum + " " + c + " " + secondNum + " = " + (firstNum + secondNum);
                                 System.out.println(result);
                                 calculator.setList(result);
                                 break;}
-                            case '-': {
+                            case '-': { //뺄셈
                                 result = firstNum + " " + c + " " + secondNum + " = " + (firstNum - secondNum);
                                 System.out.println(result);
                                 calculator.setList(result);
                                 break;
                             }
-                            case '*': {
+                            case '*': { //곱셈
                                 result = firstNum + " " + c + " " + secondNum + " = " + (firstNum * secondNum);
                                 System.out.println(result);
                                 calculator.setList(result);
                                 break;
                             }
-                            case '/': {
+                            case '/': { //나눗셈
                                 if(secondNum == 0 ){ //0으로 나누기 방지
                                     System.out.println("0으로 나눌 수 없습니다.");
                                     break;
@@ -61,7 +68,7 @@ public class App {
                                 System.out.println(result);
                                 calculator.setList(result);
                                 break;
-                            }default:
+                            }default: //지원하지 않는 연산자 입력시
                             System.out.println("지원하지 않는 연산자 입니다.");
 
                         }
@@ -72,6 +79,7 @@ public class App {
                             break;
                         }
                         }catch(InputMismatchException e){
+                            //정수가 아닐경우 예외 처리
                             System.out.println("정수를 입력하세요\n");
                             scanner.next();
                             break;
