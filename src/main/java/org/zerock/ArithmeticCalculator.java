@@ -1,11 +1,8 @@
 package org.zerock;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
-import static java.util.Arrays.stream;
 
 public class ArithmeticCalculator {
 
@@ -25,7 +22,7 @@ public class ArithmeticCalculator {
                 }
                 return OperatorType.DIVIDE.apply(firstNum,secondNum);
             }
-            default: return 0;
+            default: throw new IllegalArgumentException("지원하지 않는 연산자입니다: " + operation);
         }
     }
 
@@ -44,7 +41,11 @@ public class ArithmeticCalculator {
             System.out.println("3. 최근 계산 결과 삭제");
             System.out.println("4. 입력받은 값보다 큰 결과값 출력");
             System.out.println("5. 프로그램 종료");
-            menu = Integer.parseInt(scanner.nextLine());
+            try{menu = Integer.parseInt(scanner.nextLine());}
+            catch(NumberFormatException e){
+                System.out.println("1~5사이의 숫자를 입력하세요");
+                continue;}
+
 
             if(menu==5)break;
 
