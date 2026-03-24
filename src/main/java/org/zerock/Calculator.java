@@ -18,8 +18,8 @@ public class Calculator {
         return list;
     }
 
-    //가장 최근 결과값 삭제
+    //가장 먼저 저장된 값 삭제
     public void deleteList(){
-        list.remove(list.size()-1);
+        list.remove(0);
     }
 }

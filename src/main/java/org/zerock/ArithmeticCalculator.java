@@ -90,12 +90,12 @@ public class ArithmeticCalculator {
                     System.out.println(calculator.getList());
                     break;
                 }
-                case 3:{//최근 연산 결과 삭제
+                case 3:{//가장 먼저 저장된 값 삭제
                     if(calculator.getList().isEmpty()){
                         System.out.println("저장된 결과가 없습니다");
                         break;
                     }
-                    System.out.println("최근 연산 결과를 삭제했습니다.");
+                    System.out.println("가장 먼저 저장된 값을 삭제했습니다.");
                     calculator.deleteList();
                     break;
                 }
