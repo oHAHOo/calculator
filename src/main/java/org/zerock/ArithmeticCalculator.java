@@ -39,7 +39,7 @@ public class ArithmeticCalculator {
             System.out.println("메뉴를 선택하세요.\n");
             System.out.println("1. 계산 하기");
             System.out.println("2. 저장된 계산 결과 출력");
-            System.out.println("3. 최근 계산 결과 삭제");
+            System.out.println("3. 가장 먼저 저장된 값 삭제");
             System.out.println("4. 입력받은 값보다 큰 결과값 출력");
             System.out.println("5. 프로그램 종료");
 
@@ -90,12 +90,12 @@ public class ArithmeticCalculator {
                     System.out.println(calculator.getList());
                     break;
                 }
-                case 3:{//최근 연산 결과 삭제
+                case 3:{//가장 먼저 저장된 값 삭제
                     if(calculator.getList().isEmpty()){
                         System.out.println("저장된 결과가 없습니다");
                         break;
                     }
-                    System.out.println("최근 연산 결과를 삭제했습니다.");
+                    System.out.println("가장 먼저 저장된 값을 삭제했습니다.");
                     calculator.deleteList();
                     break;
                 }
