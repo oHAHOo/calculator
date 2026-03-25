@@ -60,6 +60,9 @@ public class ArithmeticCalculator {
                             double firstNum = Double.parseDouble(scanner.nextLine());
                             System.out.print("두번째 숫자를 입력하세요.");
                             double secondNum = Double.parseDouble(scanner.nextLine());
+                            if (firstNum <= 0 || secondNum <= 0) {
+                                throw new IllegalArgumentException("양수만 입력 가능합니다.");
+                            }
 
                             //연산자 입력
                             System.out.println("연산 기호를 입력하세요(+, -, *, /)");
@@ -76,13 +79,15 @@ public class ArithmeticCalculator {
 
                             System.out.println("계속 진행하려면 아무 글자나 입력하세요.(계산을 종료하려면 exit를 입력하세요)");
                             String answer = scanner.next();
-                            if(answer.equals("exit")){//exit를 입력하면 계산 종료
+                            if (answer.equals("exit")) {//exit를 입력하면 계산 종료
                                 break;
                             }
-                        }catch(NumberFormatException e){
+                        }catch (NumberFormatException e) {
                             //숫자 입력에 문자 입력시 예외처리
                             System.out.println("숫자를 입력하세요\n");
-                            break;
+                        }
+                        catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
                         }
                     }break; //1.계산하기 종료
                 }
