@@ -9,7 +9,7 @@ public class ArithmeticCalculator {
     public <T extends Number> double calculate(T a, T b,char operation){
         double firstNum = a.doubleValue(); //입력받은 첫번째 숫자를 실수로 변환
         double secondNum = b.doubleValue(); //입력받은 두번째 숫자를 실수로 변환
-        switch (operation){//연산자에 따라 enum에 등록된 계산 실행
+        switch (operation) {//연산자에 따라 enum에 등록된 계산 실행
             case '+': return OperatorType.ADD.apply(firstNum,secondNum);
 
             case '-': return OperatorType.SUBTRACT.apply(firstNum,secondNum);
@@ -17,7 +17,7 @@ public class ArithmeticCalculator {
             case '*': return OperatorType.MULTIPLY.apply(firstNum,secondNum);
 
             case '/': {
-                if(secondNum == 0){ //0으로 나누기 예외 처리
+                if(secondNum == 0) { //0으로 나누기 예외 처리
                     throw new ArithmeticException("0으로 나눌 수 없습니다");
                 }
                 return OperatorType.DIVIDE.apply(firstNum,secondNum);
