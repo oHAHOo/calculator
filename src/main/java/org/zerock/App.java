@@ -36,6 +36,10 @@ public class App {
                             System.out.print("두번째 정수를 입력하세요.");
                             int secondNum = scanner.nextInt();
 
+                            if (firstNum <= 0 || secondNum <= 0) {
+                                System.out.println("양의 정수를 입력하세요");
+                                continue;
+                            }
                             //연산자 입력
                         System.out.println("연산 기호를 입력하세요(+, -, *, /)");
                         char c = scanner.next().charAt(0);
@@ -91,7 +95,7 @@ public class App {
                     break;
                 }
                 case 3:{//최근 연산 결과 삭제
-                    System.out.println("최근 연산 결과를 삭제했습니다.");
+                    System.out.println("가장 먼저 저장된 값을 삭제했습니다.");
                     calculator.deleteList();
                     break;
                 }
